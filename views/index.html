@@ -5,6 +5,7 @@
     <title>주소 자동완성 prototyping</title>
     <script src="/js/jquery-2.1.1.js"></script>
     <script src="/js/jquery.autocomplete.js"></script>
+    <script src="/js/data.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <body>
 
@@ -23,12 +24,6 @@
 
 
 <script type="text/javascript">
-    const address = [
-        {value: "경기도 고양시", text: "경기도 고양시"},
-        {value: "경기도 성남시", text: "경기도 성남시"},
-        {value: "경기도 하남시", text: "경기도 하남시"}
-    ];
-
     $('#autocomplete').autocomplete({
         lookup: address,
         lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
