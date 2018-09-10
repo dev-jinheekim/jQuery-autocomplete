@@ -10,7 +10,7 @@
 
 
 <div class="container">
-    <div class="jumbotron">
+    <form class="jumbotron" action="/api/address/" method="get">
         <h1 class="title">주소 자동 완성</h1>
         <div class="input-group">
             <input class="form-control" type="text" name="search" id="autocomplete" placeholder="경기도"/>
@@ -18,7 +18,7 @@
             <button class="btn btn-default">Json Data 받기</button>
         </span>
         </div>
-    </div>
+    </form>
 </div>
 
 
@@ -33,6 +33,9 @@
         lookup: address,
         lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
             return suggestion.text.includes(originalQuery)
+        },
+        onSelect: function (suggestion) {
+            location.href="/api/address?search=" + suggestion.text;
         }
     });
 </script>
