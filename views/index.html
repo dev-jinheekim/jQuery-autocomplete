@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주소 자동완성 prototyping</title>
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/jquery.autocomplete.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<body>
+
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="title">주소 자동 완성</h1>
+        <div class="input-group">
+            <input class="form-control" type="text" name="search" id="autocomplete" placeholder="경기도"/>
+            <span class="input-group-btn">
+            <button class="btn btn-default">Json Data 받기</button>
+        </span>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    const address = [
+        {value: "경기도 고양시", text: "경기도 고양시"},
+        {value: "경기도 성남시", text: "경기도 성남시"},
+        {value: "경기도 하남시", text: "경기도 하남시"}
+    ];
+
+    $('#autocomplete').autocomplete({
+        lookup: address,
+        lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+            return suggestion.text.includes(originalQuery)
+        }
+    });
+</script>
+</body>
+</html>
