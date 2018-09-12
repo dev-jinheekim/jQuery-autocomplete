@@ -5,6 +5,4 @@ const address = [
     {value: "경기도 하남시", text: "경기도 하남시"}
 ];
 
-module.exports = {
-    address,
-};
+module.exports = address;

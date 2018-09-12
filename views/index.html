@@ -5,7 +5,6 @@
     <title>주소 자동완성 prototyping</title>
     <script src="/js/jquery-2.1.1.js"></script>
     <script src="/js/jquery.autocomplete.js"></script>
-    <script src="/js/data.js"></script>
     <link rel="stylesheet" href="/css/jquery.autocomplete.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -27,12 +26,9 @@
 
 <script type="text/javascript">
     $('#autocomplete').autocomplete({
-        lookup: address,
-        lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
-            return suggestion.text.includes(originalQuery)
-        },
+        serviceUrl: '/api/address',
         onSelect: function (suggestion) {
-            location.href="/api/address?search=" + suggestion.text;
+            location.href="/api/address?query=" + suggestion.text;
         }
     });
 </script>
